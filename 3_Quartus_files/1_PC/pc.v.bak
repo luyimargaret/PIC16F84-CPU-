@@ -1,0 +1,19 @@
+module pc(clock,reset,en,pc);
+input clock,reset,en;
+output reg[4:0] pc;
+
+reg[4:0] pc_next;
+always@(posedge clock,posedge reset)
+begin
+	pc_next=pc+1;
+	if(reset)
+		pc<=0;
+	else
+		if(en)
+			pc<=pc_next;
+		else
+			pc<=pc;
+end
+
+//assign 
+endmodule 

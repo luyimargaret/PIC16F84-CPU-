@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dC:\ModelSim10.1\setup_location\examples
+T_opt
+Va^EGaAA:YnEG7]`B4HBW50
+04 2 4 work pc fast 0
+=1-00d861e13e45-5e74453d-81-1dcc
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vpc
+I2iYPT;J9@ebd^6e6gIlRQ3
+VD955mBK:N?=6>3;ZZ:[SZ1
+dD:\Quartus_file\1_PIC\1_PC\Si
+w1584678086
+8D:/Quartus_file/1_PIC/1_PC/pc.v
+FD:/Quartus_file/1_PIC/1_PC/pc.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 SJoiORL57L`D]HIUe0R:<3
+!s85 0
+!s108 1584678196.903000
+!s107 D:/Quartus_file/1_PIC/1_PC/pc.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/1_PIC/1_PC/pc.v|

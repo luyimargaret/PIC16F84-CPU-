@@ -1,0 +1,1284 @@
+module sfr(
+input clock,
+input reset,
+input Z_en,
+input en,
+input [4:0]IN_opcode,
+input [9:0]IN_operand,
+input write_en,
+input Z,
+input [7:0]IN_ALU,
+output reg en_goto=0,
+output reg en_call=0,
+output reg en_out=0,
+output reg en_short_jump=0,
+output reg [9:0]OUT_ALU_PC=0,
+output reg [4:0]PORTA=0,
+output reg [7:0]PORTB=0,
+//output reg mem_wei=1,
+//output reg [7:0]mem_test=0
+output reg [7:0]status=0//特殊寄存器status的测试输出
+//output reg ti
+);
+
+reg [7:0]mem_0[0:79];
+reg [7:0]mem_1[0:79];
+always@(posedge clock,posedge reset)
+begin
+	if(reset==1)
+		begin
+mem_0[0]<=8'd0;
+mem_0[1]<=8'd0;
+mem_0[2]<=8'd0;
+mem_0[3]<=8'd24;
+mem_0[4]<=8'd0;
+mem_0[5]<=8'd0;
+mem_0[6]<=8'd0;
+mem_0[7]<=8'd0;
+mem_0[8]<=8'd0;
+mem_0[9]<=8'd0;
+mem_0[10]<=8'd0;
+mem_0[11]<=8'd0;
+mem_0[12]<=8'd0;
+mem_0[13]<=8'd0;
+mem_0[14]<=8'd0;
+mem_0[15]<=8'd0;
+mem_0[16]<=8'd0;
+mem_0[17]<=8'd0;
+mem_0[18]<=8'd0;
+mem_0[19]<=8'd0;
+mem_0[20]<=8'd0;
+mem_0[21]<=8'd0;
+mem_0[22]<=8'd0;
+mem_0[23]<=8'd0;
+mem_0[24]<=8'd0;
+mem_0[25]<=8'd0;
+mem_0[26]<=8'd0;
+mem_0[27]<=8'd0;
+mem_0[28]<=8'd0;
+mem_0[29]<=8'd0;
+mem_0[30]<=8'd0;
+mem_0[31]<=8'd0;
+mem_0[32]<=8'd0;
+mem_0[33]<=8'd0;
+mem_0[34]<=8'd0;
+mem_0[35]<=8'd0;
+mem_0[36]<=8'd0;
+mem_0[37]<=8'd0;
+mem_0[38]<=8'd0;
+mem_0[39]<=8'd0;
+mem_0[40]<=8'd0;
+mem_0[41]<=8'd0;
+mem_0[42]<=8'd0;
+mem_0[43]<=8'd0;
+mem_0[44]<=8'd0;
+mem_0[45]<=8'd0;
+mem_0[46]<=8'd0;
+mem_0[47]<=8'd0;
+mem_0[48]<=8'd0;
+mem_0[49]<=8'd0;
+mem_0[50]<=8'd0;
+mem_0[51]<=8'd0;
+mem_0[52]<=8'd0;
+mem_0[53]<=8'd0;
+mem_0[54]<=8'd0;
+mem_0[55]<=8'd0;
+mem_0[56]<=8'd0;
+mem_0[57]<=8'd0;
+mem_0[58]<=8'd0;
+mem_0[59]<=8'd0;
+mem_0[60]<=8'd0;
+mem_0[61]<=8'd0;
+mem_0[62]<=8'd0;
+mem_0[63]<=8'd0;
+mem_0[64]<=8'd0;
+mem_0[65]<=8'd0;
+mem_0[66]<=8'd0;
+mem_0[67]<=8'd0;
+mem_0[68]<=8'd0;
+mem_0[69]<=8'd0;
+mem_0[70]<=8'd0;
+mem_0[71]<=8'd0;
+mem_0[72]<=8'd0;
+mem_0[73]<=8'd0;
+mem_0[74]<=8'd0;
+mem_0[75]<=8'd0;
+mem_0[76]<=8'd0;
+mem_0[77]<=8'd0;
+mem_0[78]<=8'd0;
+mem_0[79]<=8'd0;
+
+mem_1[0]<=8'd0;
+mem_1[1]<=8'd255;
+mem_1[2]<=8'd0;
+mem_1[3]<=8'd24;
+mem_1[4]<=8'd0;
+mem_1[5]<=8'd255;
+mem_1[6]<=8'd255;
+mem_1[7]<=8'd0;
+mem_1[8]<=8'd0;
+mem_1[9]<=8'd0;
+mem_1[10]<=8'd0;
+mem_1[11]<=8'd0;
+mem_1[12]<=8'd0;
+mem_1[13]<=8'd0;
+mem_1[14]<=8'd0;
+mem_1[15]<=8'd0;
+mem_1[16]<=8'd0;
+mem_1[17]<=8'd0;
+mem_1[18]<=8'd0;
+mem_1[19]<=8'd0;
+mem_1[20]<=8'd0;
+mem_1[21]<=8'd0;
+mem_1[22]<=8'd0;
+mem_1[23]<=8'd0;
+mem_1[24]<=8'd0;
+mem_1[25]<=8'd0;
+mem_1[26]<=8'd0;
+mem_1[27]<=8'd0;
+mem_1[28]<=8'd0;
+mem_1[29]<=8'd0;
+mem_1[30]<=8'd0;
+mem_1[31]<=8'd0;
+mem_1[32]<=8'd0;
+mem_1[33]<=8'd0;
+mem_1[34]<=8'd0;
+mem_1[35]<=8'd0;
+mem_1[36]<=8'd0;
+mem_1[37]<=8'd0;
+mem_1[38]<=8'd0;
+mem_1[39]<=8'd0;
+mem_1[40]<=8'd0;
+mem_1[41]<=8'd0;
+mem_1[42]<=8'd0;
+mem_1[43]<=8'd0;
+mem_1[44]<=8'd0;
+mem_1[45]<=8'd0;
+mem_1[46]<=8'd0;
+mem_1[47]<=8'd0;
+mem_1[48]<=8'd0;
+mem_1[49]<=8'd0;
+mem_1[50]<=8'd0;
+mem_1[51]<=8'd0;
+mem_1[52]<=8'd0;
+mem_1[53]<=8'd0;
+mem_1[54]<=8'd0;
+mem_1[55]<=8'd0;
+mem_1[56]<=8'd0;
+mem_1[57]<=8'd0;
+mem_1[58]<=8'd0;
+mem_1[59]<=8'd0;
+mem_1[60]<=8'd0;
+mem_1[61]<=8'd0;
+mem_1[62]<=8'd0;
+mem_1[63]<=8'd0;
+mem_1[64]<=8'd0;
+mem_1[65]<=8'd0;
+mem_1[66]<=8'd0;
+mem_1[67]<=8'd0;
+mem_1[68]<=8'd0;
+mem_1[69]<=8'd0;
+mem_1[70]<=8'd0;
+mem_1[71]<=8'd0;
+mem_1[72]<=8'd0;
+mem_1[73]<=8'd0;
+mem_1[74]<=8'd0;
+mem_1[75]<=8'd0;
+mem_1[76]<=8'd0;
+mem_1[77]<=8'd0;
+mem_1[78]<=8'd0;
+mem_1[79]<=8'd0;
+		end
+	else
+		if(en)
+		begin
+			en_goto<=0;
+			en_call<=0;
+			en_out<=0;
+			en_short_jump<=0;
+			//ti<=1;
+			if(mem_1['h03][5]==1)//选择体1
+				begin
+				if(IN_opcode==5'd1)//1_CALL
+				begin
+				en_call<=1;
+				OUT_ALU_PC=IN_operand[9:0];
+				end
+			else if(IN_opcode==5'd2)//2_GOTO
+				begin
+				en_goto<=1;
+				OUT_ALU_PC=IN_operand[9:0];
+				end
+			else if(IN_opcode==5'd3)//3_BCF
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					mem_1['h02][IN_operand[9:7]]=0;
+					en_goto<=1;
+					OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					mem_1[mem_1[8'h04]][IN_operand[9:7]]=0;
+				else
+					mem_1[IN_operand[6:0]][IN_operand[9:7]]=0;
+				//mem_wei=mem[IN_operand[6:0]][IN_operand[9:7]];
+				end
+			else if(IN_opcode==5'd4)//4_BSF
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					mem_1['h02][IN_operand[9:7]]=1;
+					en_goto<=1;
+					OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					mem_1[mem_1[8'h04]][IN_operand[9:7]]=1;
+				else
+					mem_1[IN_operand[6:0]][IN_operand[9:7]]=1;
+				//mem_wei=mem[IN_operand[6:0]][IN_operand[9:7]];
+				end
+			else if(IN_opcode==5'd5)//5_BTFSC
+				begin
+				if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					if((mem_1[mem_1[8'h04]][IN_operand[9:7]])==0)
+						en_short_jump<=1;
+					else
+						en_short_jump<=0;
+				else
+					if((mem_1[IN_operand[6:0]][IN_operand[9:7]])==0)
+						en_short_jump<=1;
+					else
+						en_short_jump<=0;
+				end
+			else if(IN_opcode==5'd6)//6_BTFSS
+				begin
+				if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					if((mem_1[mem_1[8'h04]][IN_operand[9:7]])==1)
+						en_short_jump<=1;
+					else
+						en_short_jump<=0;
+				else
+					if((mem_1[IN_operand[6:0]][IN_operand[9:7]])==1)
+						en_short_jump<=1;
+					else
+						en_short_jump<=0;
+				end
+			else if(IN_opcode==5'd8)//8_RETLW
+				begin
+				en_out<=1;
+				end
+			else if((IN_opcode==5'd11)||(IN_opcode==5'd13)||(IN_opcode==5'd14)||(IN_opcode==5'd15)||(IN_opcode==5'd16))
+			//11_SUBWF//13_IORWF//14_ANDWF//15_XORWF//16_ADDWF_Z
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					if(write_en==1)
+						begin
+						mem_1['h02]=IN_ALU;
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					else
+						OUT_ALU_PC[7:0]=mem_1['h02];
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时					
+					if(write_en==1)
+						begin
+						mem_1[mem_1[8'h04]]=IN_ALU;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					else
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]];
+				else
+					if(write_en==1)
+						begin
+						mem_1[IN_operand[6:0]]=IN_ALU;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					else
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]];
+				end
+			else if(IN_opcode==5'd12)//12_DECF_Z
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					if((mem_1['h02]-1'b1)==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1['h02]-'b1;
+					else
+						begin
+						mem_1['h02]=mem_1['h02]-'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						end
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if((mem_1[mem_1[8'h04]]-1'b1)==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]]-'b1;
+					else
+						begin
+						mem_1[mem_1[8'h04]]=mem_1[mem_1[8'h04]]-'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1[mem_1[8'h04]]};
+						end
+					end	
+				else
+					begin
+					if((mem_1[IN_operand[6:0]]-1'b1)==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]]-'b1;
+					else
+						begin
+						mem_1[IN_operand[6:0]]=mem_1[IN_operand[6:0]]-'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				end
+			else if(IN_opcode==5'd17)//17_MOVF_Z
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					if(mem_1['h02]==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1['h02];
+					else
+						begin
+						mem_1['h02]=mem_1['h02];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if(mem_1[mem_1[8'h04]]==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]];
+					else
+						begin
+						mem_1[mem_1[8'h04]]=mem_1[mem_1[8'h04]];
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else
+					begin
+					if(mem_1[IN_operand[6:0]]==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]];
+					else
+						begin
+						mem_1[IN_operand[6:0]]=mem_1[IN_operand[6:0]];
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				end
+			else if(IN_opcode==5'd18)//18_COMF_Z
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					if((~mem_1['h02])==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=~mem_1['h02];
+					else
+						begin
+						mem_1['h02]=~mem_1['h02];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if((~mem_1[mem_1[8'h04]])==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=~mem_1[mem_1[8'h04]];
+					else
+						begin
+						mem_1[mem_1[8'h04]]=~mem_1[mem_1[8'h04]];
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else
+					begin
+					if((~mem_1[IN_operand[6:0]])==0)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=~mem_1[IN_operand[6:0]];
+					else
+						begin
+						mem_1[IN_operand[6:0]]=~mem_1[IN_operand[6:0]];
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				end
+			else if(IN_opcode==5'd19)//19_INCF_Z
+			begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					if((mem_1['h02]+1'b1)==9'b10000_0000)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1['h02]+'b1;
+					else
+						begin
+						mem_1['h02]=mem_1['h02]+'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						end
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if((mem_1[mem_1[8'h04]]+1'b1)==9'b10000_0000)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]]+'b1;
+					else
+						begin
+						mem_1[mem_1[8'h04]]=mem_1[mem_1[8'h04]]+'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1[mem_1[8'h04]]};
+						end
+					end	
+				else
+					begin
+					if((mem_1[IN_operand[6:0]]+1'b1)==9'b10000_0000)
+						mem_1['h03][2]=1'b1;
+					else
+						mem_1['h03][2]=1'b0;
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]]+'b1;
+					else
+						begin
+						mem_1[IN_operand[6:0]]=mem_1[IN_operand[6:0]]+'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				end
+			else if(IN_opcode==5'd20)//20_DECFSZ_Z
+				begin
+				if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if((mem_1[mem_1[8'h04]]-1'b1)==0)
+						begin
+						en_short_jump<=1;
+						mem_1['h03][2]=1'b1;
+						end
+					else
+						begin
+						en_short_jump<=0;
+						mem_1['h03][2]=1'b0;
+						end
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]]-'b1;
+					else
+						begin
+						mem_1[mem_1[8'h04]]=mem_1[mem_1[8'h04]]-'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else
+					begin
+					if((mem_1[IN_operand[6:0]]-1'b1)==0)
+						begin
+						en_short_jump<=1;
+						mem_1['h03][2]=1'b1;
+						end
+					else
+						begin
+						en_short_jump<=0;
+						mem_1['h03][2]=1'b0;
+						end
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]]-'b1;
+					else
+						begin
+						mem_1[IN_operand[6:0]]=mem_1[IN_operand[6:0]]-'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end	
+				end
+			else if(IN_opcode==5'd21)//21_RRF
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1['h02][0],mem_1['h02][7:1]};
+					else
+						begin
+						mem_1['h02]={mem_1['h02][0],mem_1['h02][7:1]};
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[mem_1[8'h04]][0],mem_1[mem_1[8'h04]][7:1]};
+					else
+						begin
+						mem_1[mem_1[8'h04]]={mem_1[mem_1[8'h04]][0],mem_1[mem_1[8'h04]][7:1]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[IN_operand[6:0]][0],mem_1[IN_operand[6:0]][7:1]};
+					else
+						begin
+						mem_1[IN_operand[6:0]]={mem_1[IN_operand[6:0]][0],mem_1[IN_operand[6:0]][7:1]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				end
+			else if(IN_opcode==5'd22)//22_RLF
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1['h02][6:0],mem_1['h02][7]};
+					else
+						begin
+						mem_1['h02]={mem_1['h02][6:0],mem_1['h02][7]};
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[mem_1[8'h04]][6:0],mem_1[mem_1[8'h04]][7]};
+					else
+						begin
+						mem_1[mem_1[8'h04]]={mem_1[mem_1[8'h04]][6:0],mem_1[mem_1[8'h04]][7]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[IN_operand[6:0]][6:0],mem_1[IN_operand[6:0]][7]};
+					else
+						begin
+						mem_1[IN_operand[6:0]]={mem_1[IN_operand[6:0]][6:0],mem_1[IN_operand[6:0]][7]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				end
+			else if(IN_opcode==5'd23)//23_SWAP
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1['h02][3:0],mem_1['h02][7:4]};
+					else
+						begin
+						mem_1['h02]={mem_1['h02][3:0],mem_1['h02][7:4]};
+						en_goto<=1;
+						OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[mem_1[8'h04]][3:0],mem_1[mem_1[8'h04]][7:4]};
+					else
+						begin
+						mem_1[mem_1[8'h04]]={mem_1[mem_1[8'h04]][3:0],mem_1[mem_1[8'h04]][7:4]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				else
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]={mem_1[IN_operand[6:0]][3:0],mem_1[IN_operand[6:0]][7:4]};
+					else
+						begin
+						mem_1[IN_operand[6:0]]={mem_1[IN_operand[6:0]][3:0],mem_1[IN_operand[6:0]][7:4]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+				end	
+			else if(IN_opcode==5'd24)//24_INCFSZ_Z
+				begin
+				if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					if((mem_1[mem_1[8'h04]]+1'b1)==9'b10000_0000)
+						begin
+						en_short_jump<=1;
+						mem_1['h03][2]=1'b1;
+						end
+					else
+						begin
+						en_short_jump<=0;
+						mem_1['h03][2]=1'b0;
+						end
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[mem_1[8'h04]]+'b1;
+					else
+						begin
+						mem_1[mem_1[8'h04]]=mem_1[mem_1[8'h04]]+'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else
+					begin
+					if((mem_1[IN_operand[6:0]]+1'b1)==9'b10000_0000)
+						begin
+						en_short_jump<=1;
+						mem_1['h03][2]=1'b1;
+						end
+					else
+						begin
+						en_short_jump<=0;
+						mem_1['h03][2]=1'b0;
+						end
+					if(IN_operand[7]==0)
+						OUT_ALU_PC[7:0]=mem_1[IN_operand[6:0]]+'b1;
+					else
+						begin
+						mem_1[IN_operand[6:0]]=mem_1[IN_operand[6:0]]+'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end	
+					end
+				end
+			else if(IN_opcode==5'd28)//28_CLRF_Z
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					mem_1['h02]=0;
+					mem_1['h03][2]=1'b1;
+					en_goto<=1;
+					OUT_ALU_PC={mem_1[8'h0a][1:0],mem_1['h02]};
+					//mem_test=mem[IN_operand[6:0]];
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					begin
+					mem_1[mem_1[8'h04]]=0;
+					mem_1['h03][2]=1'b1;
+					//mem_test=mem[IN_operand[6:0]];
+					end
+				else
+					begin
+					mem_1[IN_operand[6:0]]=0;
+					mem_1['h03][2]=1'b1;
+					//mem_test=mem[IN_operand[6:0]];
+					end
+				end
+			else if(IN_opcode==5'd30)//30_MOVWF
+				begin
+				if(IN_operand[6:0]==7'h02)//操作PCL
+					begin
+					en_goto<=1;
+					OUT_ALU_PC={mem_1[8'h0a][1:0],IN_ALU};
+					end
+				else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+					mem_1[mem_1[8'h04]]=IN_ALU;
+				else
+					mem_1[IN_operand[6:0]]=IN_ALU;
+				//mem_test=mem_1[IN_operand[6:0]];
+				end
+			else if(IN_opcode==5'd31)//31_RETURN	
+				begin
+				en_out<=1;
+				end	
+			else if(IN_opcode==5'd32)//32_RETFIE	
+				begin
+				mem_1['h0b][7]=1'b1;
+				//mem_wei=mem['h0b][7];
+				en_out<=1;
+				end
+			else
+				begin
+				en_goto<=0;
+				en_call<=0;
+				en_out<=0;
+				en_short_jump<=0;
+				OUT_ALU_PC<=OUT_ALU_PC;
+				//mem_wei<=mem_wei;
+				//mem_test<=mem_test;
+				end
+				mem_0['h02]=mem_1['h02];
+				mem_0['h03]=mem_1['h03];
+				mem_0['h04]=mem_1['h04];
+				mem_0['h0a]=mem_1['h0a];
+				mem_0['h0b]=mem_1['h0b];
+			end
+///////////////////////////////////////////////////////////////////////				
+			else//选择体0
+				begin
+				//ti<=0;
+				if(IN_opcode==5'd1)//1_CALL
+					begin
+					en_call<=1;
+					OUT_ALU_PC=IN_operand[9:0];
+					end
+				else if(IN_opcode==5'd2)//2_GOTO
+					begin
+					en_goto<=1;
+					OUT_ALU_PC=IN_operand[9:0];
+					end
+				else if(IN_opcode==5'd3)//3_BCF
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						mem_0['h02][IN_operand[9:7]]=0;
+						en_goto<=1;
+						OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						mem_0[mem_0[8'h04]][IN_operand[9:7]]=0;
+					else
+						mem_0[IN_operand[6:0]][IN_operand[9:7]]=0;
+					//mem_wei=mem[IN_operand[6:0]][IN_operand[9:7]];
+					end
+				else if(IN_opcode==5'd4)//4_BSF
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						mem_0['h02][IN_operand[9:7]]=1;
+						en_goto<=1;
+						OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						mem_0[mem_0[8'h04]][IN_operand[9:7]]=1;
+					else
+						mem_0[IN_operand[6:0]][IN_operand[9:7]]=1;
+					//mem_wei=mem[IN_operand[6:0]][IN_operand[9:7]];
+					end
+				else if(IN_opcode==5'd5)//5_BTFSC
+					begin
+					if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						if((mem_0[mem_0[8'h04]][IN_operand[9:7]])==0)
+							en_short_jump<=1;
+						else
+							en_short_jump<=0;
+					else
+						if((mem_0[IN_operand[6:0]][IN_operand[9:7]])==0)
+							en_short_jump<=1;
+						else
+							en_short_jump<=0;
+					end
+				else if(IN_opcode==5'd6)//6_BTFSS
+					begin
+					if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						if((mem_0[mem_0[8'h04]][IN_operand[9:7]])==1)
+							en_short_jump<=1;
+						else
+							en_short_jump<=0;
+					else
+						if((mem_0[IN_operand[6:0]][IN_operand[9:7]])==1)
+							en_short_jump<=1;
+						else
+							en_short_jump<=0;
+					end
+				else if(IN_opcode==5'd8)//8_RETLW
+					begin
+					en_out<=1;
+					end
+				else if((IN_opcode==5'd11)||(IN_opcode==5'd13)||(IN_opcode==5'd14)||(IN_opcode==5'd15)||(IN_opcode==5'd16))
+				//11_SUBWF//13_IORWF//14_ANDWF//15_XORWF//16_ADDWF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						if(write_en==1)
+							begin
+							mem_0['h02]=IN_ALU;
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						else
+							OUT_ALU_PC[7:0]=mem_0['h02];
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时					
+						if(write_en==1)
+							begin
+							mem_0[mem_0[8'h04]]=IN_ALU;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						else
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]];
+					else
+						if(write_en==1)
+							begin
+							mem_0[IN_operand[6:0]]=IN_ALU;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						else
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]];
+					end
+				else if(IN_opcode==5'd12)//12_DECF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						if((mem_0['h02]-1'b1)==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0['h02]-'b1;
+						else
+							begin
+							mem_0['h02]=mem_0['h02]-'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							end
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if((mem_0[mem_0[8'h04]]-1'b1)==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]]-'b1;
+						else
+							begin
+							mem_0[mem_0[8'h04]]=mem_0[mem_0[8'h04]]-'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0[mem_0[8'h04]]};
+							end
+						end	
+					else
+						begin
+						if((mem_0[IN_operand[6:0]]-1'b1)==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]]-'b1;
+						else
+							begin
+							mem_0[IN_operand[6:0]]=mem_0[IN_operand[6:0]]-'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					end
+				else if(IN_opcode==5'd17)//17_MOVF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						if(mem_0['h02]==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0['h02];
+						else
+							begin
+							mem_0['h02]=mem_0['h02];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if(mem_0[mem_0[8'h04]]==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]];
+						else
+							begin
+							mem_0[mem_0[8'h04]]=mem_0[mem_0[8'h04]];
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else
+						begin
+						if(mem_0[IN_operand[6:0]]==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]];
+						else
+							begin
+							mem_0[IN_operand[6:0]]=mem_0[IN_operand[6:0]];
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					end
+				else if(IN_opcode==5'd18)//18_COMF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						if((~mem_0['h02])==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=~mem_0['h02];
+						else
+							begin
+							mem_0['h02]=~mem_0['h02];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if((~mem_0[mem_0[8'h04]])==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=~mem_0[mem_0[8'h04]];
+						else
+							begin
+							mem_0[mem_0[8'h04]]=~mem_0[mem_0[8'h04]];
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else
+						begin
+						if((~mem_0[IN_operand[6:0]])==0)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=~mem_0[IN_operand[6:0]];
+						else
+							begin
+							mem_0[IN_operand[6:0]]=~mem_0[IN_operand[6:0]];
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					end
+				else if(IN_opcode==5'd19)//19_INCF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						if((mem_0['h02]+1'b1)==9'b10000_0000)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0['h02]+'b1;
+						else
+							begin
+							mem_0['h02]=mem_0['h02]+'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							end
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if((mem_0[mem_0[8'h04]]+1'b1)==9'b10000_0000)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]]+'b1;
+						else
+							begin
+							mem_0[mem_0[8'h04]]=mem_0[mem_0[8'h04]]+'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0[mem_0[8'h04]]};
+							end
+						end	
+					else
+						begin
+						if((mem_0[IN_operand[6:0]]+1'b1)==9'b10000_0000)
+							mem_0['h03][2]=1'b1;
+						else
+							mem_0['h03][2]=1'b0;
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]]+'b1;
+						else
+							begin
+							mem_0[IN_operand[6:0]]=mem_0[IN_operand[6:0]]+'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					end
+				else if(IN_opcode==5'd20)//20_DECFSZ_Z
+					begin
+					if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if((mem_0[mem_0[8'h04]]-1'b1)==0)
+							begin
+							en_short_jump<=1;
+							mem_0['h03][2]=1'b1;
+							end
+						else
+							begin
+							en_short_jump<=0;
+							mem_0['h03][2]=1'b0;
+							end
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]]-'b1;
+						else
+							begin
+							mem_0[mem_0[8'h04]]=mem_0[mem_0[8'h04]]-'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else
+						begin
+						if((mem_0[IN_operand[6:0]]-1'b1)==0)
+							begin
+							en_short_jump<=1;
+							mem_0['h03][2]=1'b1;
+							end
+						else
+							begin
+							en_short_jump<=0;
+							mem_0['h03][2]=1'b0;
+							end
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]]-'b1;
+						else
+							begin
+							mem_0[IN_operand[6:0]]=mem_0[IN_operand[6:0]]-'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end	
+					end
+				else if(IN_opcode==5'd21)//21_RRF
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0['h02][0],mem_0['h02][7:1]};
+						else
+							begin
+							mem_0['h02]={mem_0['h02][0],mem_0['h02][7:1]};
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[mem_0[8'h04]][0],mem_0[mem_0[8'h04]][7:1]};
+						else
+							begin
+							mem_0[mem_0[8'h04]]={mem_0[mem_0[8'h04]][0],mem_0[mem_0[8'h04]][7:1]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[IN_operand[6:0]][0],mem_0[IN_operand[6:0]][7:1]};
+						else
+							begin
+							mem_0[IN_operand[6:0]]={mem_0[IN_operand[6:0]][0],mem_0[IN_operand[6:0]][7:1]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					end
+				else if(IN_opcode==5'd22)//22_RLF
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0['h02][6:0],mem_0['h02][7]};
+						else
+							begin
+							mem_0['h02]={mem_0['h02][6:0],mem_0['h02][7]};
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[mem_0[8'h04]][6:0],mem_0[mem_0[8'h04]][7]};
+						else
+							begin
+							mem_0[mem_0[8'h04]]={mem_0[mem_0[8'h04]][6:0],mem_0[mem_0[8'h04]][7]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[IN_operand[6:0]][6:0],mem_0[IN_operand[6:0]][7]};
+						else
+							begin
+							mem_0[IN_operand[6:0]]={mem_0[IN_operand[6:0]][6:0],mem_0[IN_operand[6:0]][7]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					end
+				else if(IN_opcode==5'd23)//23_SWAP
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0['h02][3:0],mem_0['h02][7:4]};
+						else
+							begin
+							mem_0['h02]={mem_0['h02][3:0],mem_0['h02][7:4]};
+							en_goto<=1;
+							OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[mem_0[8'h04]][3:0],mem_0[mem_0[8'h04]][7:4]};
+						else
+							begin
+							mem_0[mem_0[8'h04]]={mem_0[mem_0[8'h04]][3:0],mem_0[mem_0[8'h04]][7:4]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					else
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]={mem_0[IN_operand[6:0]][3:0],mem_0[IN_operand[6:0]][7:4]};
+						else
+							begin
+							mem_0[IN_operand[6:0]]={mem_0[IN_operand[6:0]][3:0],mem_0[IN_operand[6:0]][7:4]};
+							//mem_test=mem[IN_operand[6:0]];
+							end
+					end	
+				else if(IN_opcode==5'd24)//24_INCFSZ_Z
+					begin
+					if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						if((mem_0[mem_0[8'h04]]+1'b1)==9'b10000_0000)
+							begin
+							en_short_jump<=1;
+							mem_0['h03][2]=1'b1;
+							end
+						else
+							begin
+							en_short_jump<=0;
+							mem_0['h03][2]=1'b0;
+							end
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[mem_0[8'h04]]+'b1;
+						else
+							begin
+							mem_0[mem_0[8'h04]]=mem_0[mem_0[8'h04]]+'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					else
+						begin
+						if((mem_0[IN_operand[6:0]]+1'b1)==9'b10000_0000)
+							begin
+							en_short_jump<=1;
+							mem_0['h03][2]=1'b1;
+							end
+						else
+							begin
+							en_short_jump<=0;
+							mem_0['h03][2]=1'b0;
+							end
+						if(IN_operand[7]==0)
+							OUT_ALU_PC[7:0]=mem_0[IN_operand[6:0]]+'b1;
+						else
+							begin
+							mem_0[IN_operand[6:0]]=mem_0[IN_operand[6:0]]+'b1;
+							//mem_test=mem[IN_operand[6:0]];
+							end
+						end
+					end
+				else if(IN_opcode==5'd28)//28_CLRF_Z
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						mem_0['h02]=0;
+						mem_0['h03][2]=1'b1;
+						en_goto<=1;
+						OUT_ALU_PC={mem_0[8'h0a][1:0],mem_0['h02]};
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						begin
+						mem_0[mem_0[8'h04]]=0;
+						mem_0['h03][2]=1'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					else
+						begin
+						mem_0[IN_operand[6:0]]=0;
+						mem_0['h03][2]=1'b1;
+						//mem_test=mem[IN_operand[6:0]];
+						end
+					end
+				else if(IN_opcode==5'd30)//30_MOVWF
+					begin
+					if(IN_operand[6:0]==7'h02)//操作PCL
+						begin
+						en_goto<=1;
+						OUT_ALU_PC={mem_0[8'h0a][1:0],IN_ALU};
+						end
+					else if(IN_operand[6:0]==7'h00)//将FSR中的内容视为地址时
+						mem_0[mem_0[8'h04]]=IN_ALU;
+					else
+						mem_0[IN_operand[6:0]]=IN_ALU;
+					//mem_test=mem_0[IN_operand[6:0]];
+					end
+				else if(IN_opcode==5'd31)//31_RETURN	
+					begin
+					en_out<=1;
+					end	
+				else if(IN_opcode==5'd32)//32_RETFIE	
+					begin
+					mem_0['h0b][7]=1'b1;
+					//mem_wei=mem['h0b][7];
+					en_out<=1;
+					end
+				else
+					begin
+					en_goto<=0;
+					en_call<=0;
+					en_out<=0;
+					en_short_jump<=0;
+					OUT_ALU_PC<=OUT_ALU_PC;
+					//mem_wei<=mem_wei;
+					//mem_test<=mem_test;
+					end
+				mem_1['h02]=mem_0['h02];
+				mem_1['h03]=mem_0['h03];
+				mem_1['h04]=mem_0['h04];
+				mem_1['h0a]=mem_0['h0a];
+				mem_1['h0b]=mem_0['h0b];
+				end//end选择体0的else
+			PORTA=mem_0[5][4:0];
+			PORTB=mem_0[6];
+			status=mem_0['h03];
+			end//end的是if(en)
+		else if((Z_en)&&
+		((IN_opcode==5'd11)||(IN_opcode==5'd13)||(IN_opcode==5'd14)||(IN_opcode==5'd15)||(IN_opcode==5'd16))||
+		((IN_opcode==5'd9)||(IN_opcode==5'd10)||(IN_opcode==5'd25)||(IN_opcode==5'd26)||(IN_opcode==5'd27))
+		||(IN_opcode==5'd29))
+		//11_SUBWF//13_IORWF//14_ANDWF//15_XORWF//16_ADDWF_Z
+		//9_SUBLW_Z//10_ADDLW_Z//25_IORLW_Z//26_ADDLW_Z//27_XORLW_Z
+		//29_CLRW_Z
+		mem_0['h03][2]=Z;
+		else
+			begin
+			en_goto<=en_goto;
+			en_call<=en_call;
+			en_out<=en_out;
+			en_short_jump<=en_short_jump;
+			OUT_ALU_PC<=OUT_ALU_PC;
+			PORTA<=PORTA;
+			PORTB<=PORTB;
+			//mem_wei<=mem_wei;
+			//mem_test<=mem_test;
+			status<=status;
+			end
+end//end的是always开始的begin
+endmodule
+
+

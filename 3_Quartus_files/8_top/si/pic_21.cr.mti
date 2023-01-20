@@ -1,0 +1,50 @@
+{D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module sfr
+
+Top level modules:
+	sfr
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module stack
+
+Top level modules:
+	stack
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module decode
+
+Top level modules:
+	decode
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v} {1 {vlog -work work -vopt {D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}}

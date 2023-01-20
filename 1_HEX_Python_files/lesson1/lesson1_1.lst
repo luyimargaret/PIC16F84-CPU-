@@ -1,0 +1,23 @@
+     1: #include<pic.h>
+     2: #define uchar unsigned char
+     3: #define uint unsigned int
+     4: 
+     5: __CONFIG(0x3ff5);
+     6: void delay(uint x)//ÑÓÊ±x.01ºÁÃë
+     7: {
+     8:         uint a,b;
+     9:         for(a=x;a>0;a--)
+    10:                 for(b=110;b>0;b--);
+    11: }
+    12: void main()
+    13: {
+    14:         uchar i;
+    15:         TRISB=0x00;
+    16:         PORTB=0x01;
+    17:         delay(200);
+    18:         for(i=0;i<=7;i++)
+    19:         {
+    20:                 PORTB=PORTB<<1;
+    21:                 delay(200);
+    22:         }
+    23: }

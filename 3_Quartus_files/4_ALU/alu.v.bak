@@ -1,0 +1,42 @@
+module alu(
+input clk,
+input reset,
+input en,
+input [7:0]din,
+input add_en,
+input sub_en,
+input and_en,
+input pass_en,
+output reg[7:0] a,
+output n,
+output z,
+output reg c,
+output v
+);
+
+always@(posedge clk,posedge reset)
+begin
+	if(reset==1)
+		begin
+			a<=0;
+			c<=0;
+		end
+	else
+		begin
+			if(en==1)
+				if(add_en==1)
+					{c,a}<=a[7:0]+din;
+				else if(sub_en==1)
+					{c,a}<=a[7:0]-din;
+				else if(and_en==1)
+					a<=a&din;
+				else if(pass_en==1)
+					a<=din;
+		end
+end
+
+assign z=(a==8'b00000000)?1:0;
+assign n=(c==1'b1)?1:0;
+assign v=((a>127)||(a<-128))?1:0;
+endmodule
+				

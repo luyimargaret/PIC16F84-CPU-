@@ -1,0 +1,41 @@
+     1: #include<pic.h>
+     2: #define uchar unsigned char
+     3: #define uint unsigned int
+     4: 
+     5: //__CONFIG(0x3ff5);
+     6: void delay(uint x)//延时x.01毫秒
+     7: {
+     8:         uint a,b;
+     9:         for(a=x;a>0;a--)
+    10:                 for(b=10;b>0;b--);
+    11: }
+    12: unsigned char led[]={ //共阳
+    13:                 0xC0,  //"0"
+    14:                 0xF9,  //"1"
+    15:                 0xA4,  //"2"
+    16:                 0xB0,  //"3"
+    17:                          }; 
+    18: void main()
+    19: {
+    20:         TRISA=0X00;//设置TRISA（位选）为输出
+    21:         TRISB=0X00;//设置TRISB（段选）为输出
+    22:         while(1)
+    23:         {
+    24:                 PORTA = 0x07;//使能第一个数码管
+    25:                 PORTB =led[0];
+    26:                 delay(10);
+    27: 
+    28:                 PORTA = 0x0b;//使能第二个数码管
+    29:                 PORTB = led[1];
+    30:                 delay(10);
+    31: 
+    32:                 PORTA = 0x0d;//使能第三个数码管
+    33:                 PORTB = led[2];
+    34:                 delay(10);
+    35: 
+    36:                 PORTA = 0x0e;//使能第四个数码管
+    37:                 PORTB = led[3];
+    38:                 delay(10);
+    39:         }
+    40:         
+    41: }

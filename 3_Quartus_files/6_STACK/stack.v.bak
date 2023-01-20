@@ -1,0 +1,44 @@
+module stack(
+input clock,
+input reset,
+input [9:0]IN_SFR,
+input [9:0]IN_STACK,
+input jump_en,
+input en,
+input press_en,
+input  out_en,
+output reg[9:0]OUT_STACK=0,
+output reg[9:0]OUT_MEMORY=0
+);
+
+
+
+reg[9:0]OUT_MEMORY_next;
+always@(posedge clock,posedge reset)
+begin
+	OUT_MEMORY_next=OUT_MEMORY+1'b1;
+	if(reset)
+		OUT_MEMORY<=0;
+	else
+		if(en)
+			begin
+				if(jump_en)
+					OUT_MEMORY<=IN_SFR;
+				else if(press_en)
+					begin
+						OUT_STACK<=OUT_MEMORY_next;
+						OUT_MEMORY<=IN_SFR;
+					end
+				else if(out_en)
+					OUT_MEMORY<=IN_STACK;
+				else
+					OUT_MEMORY<=OUT_MEMORY_next;
+			end
+		else
+			OUT_MEMORY<=OUT_MEMORY;
+end
+
+endmodule 
+
+
+

@@ -1,0 +1,156 @@
+m255
+K3
+13
+cModel Technology
+dD:\Quartus_file\1_PIC_(del_wdt_sleep_nop)\8_top\si
+T_opt
+VTnGU0::zG:GKg6mcGTn:T2
+04 3 4 work top fast 0
+=20-00d861e13e45-5e7e129e-37c-25c4
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+valu
+I:ERcVT1jXgNj[ePhfamBe0
+Vna2P2>j^35WbIo5gfNGkg0
+Z0 dD:\Quartus_file\3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)\9_top_little\si
+w1585194100
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/4_ALU/alu.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/4_ALU/alu.v
+L0 1
+Z1 OE;L;10.1a;51
+r1
+31
+Z2 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 ;O:aLnSUPB>]c2nfkNbcg2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/4_ALU/alu.v|
+!s108 1585320604.170000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/4_ALU/alu.v|
+!i10b 1
+!s85 0
+vcontrol
+I[[[`KU3OJgXC;`bG;EUKj0
+VFYDE<:3^169IDJM35WT`A2
+Z3 dD:\Quartus_file\3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)\9_top_little\si
+w1585118931
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/5_CONTROL/control.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/5_CONTROL/control.v
+L0 1
+R1
+r1
+31
+R2
+!s100 GIR0j_l<`lL?YcRDC=fb`2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/5_CONTROL/control.v|
+!s108 1585320604.250000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/5_CONTROL/control.v|
+!i10b 1
+!s85 0
+vdecode
+IWGc`B>BX=Kz012kQlL0Wi2
+V^O;FmaJ@CEoU<Ukh;SA<W3
+R3
+w1585046854
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/3_DECODE/decode.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/3_DECODE/decode.v
+L0 1
+R1
+r1
+31
+R2
+!s100 c><G@X<To@>mMJZV^^64h2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/3_DECODE/decode.v|
+!s108 1585320604.054000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/3_DECODE/decode.v|
+!i10b 1
+!s85 0
+vmemory
+IZfl0QNRo2PIIGNNIIG7iM1
+VIKR3iFec]_Gb>_KcfcF_C2
+R3
+w1585320235
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/2_MEMORY/memory.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/2_MEMORY/memory.v
+L0 1
+R1
+r1
+31
+R2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/2_MEMORY/memory.v|
+!s100 PWGzmR^5aJ3iOPh@3aO[S3
+!s108 1585320604.560000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/2_MEMORY/memory.v|
+!i10b 1
+!s85 0
+vpc
+IBn1]C@m0MUh@N?VXmFe351
+VD955mBK:N?=6>3;ZZ:[SZ1
+R3
+w1584678086
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/1_PC/pc.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/1_PC/pc.v
+L0 1
+R1
+r1
+31
+R2
+!s100 H5o>>6H>0Z^jDX0]2JHjo2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/1_PC/pc.v|
+!s108 1585320603.914000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/1_PC/pc.v|
+!i10b 1
+!s85 0
+vsfr
+I]iK::4KbR>WcTFZI>TT^e3
+VVIj4?QL=lJ@AfNUC27lH03
+R3
+w1585307905
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/7_SFR/sfr.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/7_SFR/sfr.v
+L0 1
+R1
+r1
+31
+R2
+!s100 OL^B>U`<RP2>aQZ]W3nTn1
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/7_SFR/sfr.v|
+!s108 1585320604.410000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/7_SFR/sfr.v|
+!i10b 1
+!s85 0
+vstack
+I4G5DQeZ]iY^JA6iI=ZVSk2
+V[fA_8zd=k__bgcWNOODSB1
+R3
+w1584278404
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/6_STACK/stack.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/6_STACK/stack.v
+L0 1
+R1
+r1
+31
+R2
+!s100 >KKbT1GzC_LXKR6=UbRnj2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/6_STACK/stack.v|
+!s108 1585320604.320000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/6_STACK/stack.v|
+!i10b 1
+!s85 0
+vtop
+IjU:lX]h9T4bJKkbPZNo212
+V6oMT58<VnLcUV3=>CQ6Nd0
+R3
+w1585191850
+8D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/8_top/top.v
+FD:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/8_top/top.v
+L0 20
+R1
+r1
+31
+R2
+!s100 Je6`MR_TMYWDzQf1i@G=21
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/8_top/top.v|
+!i10b 1
+!s85 0
+!s108 1585320604.680000
+!s107 D:/Quartus_file/3_PIC_ (adjust_sfr_to_two_128)_(del_wdt_sleep_nop)/8_top/top.v|

@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dD:\ModelSim10.1\setup_location\examples
+T_opt
+VLJKEIi<UjIhRW6ICH=o;l3
+04 6 4 work memory fast 0
+=1-1c394723b9bc-5e6f91f2-30c-2078
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vmemory
+IJEh:7?Tc7j]mPc`T0=]I20
+VIKR3iFec]_Gb>_KcfcF_C2
+dD:\essential_work_save\6_PIC\2_MEMORY\si
+w1584369986
+8D:/essential_work_save/6_PIC/2_MEMORY/memory.v
+FD:/essential_work_save/6_PIC/2_MEMORY/memory.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 2^l<aZdgDHceDEX2<LWB90
+!s85 0
+!s108 1584370144.385000
+!s107 D:/essential_work_save/6_PIC/2_MEMORY/memory.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:/essential_work_save/6_PIC/2_MEMORY/memory.v|

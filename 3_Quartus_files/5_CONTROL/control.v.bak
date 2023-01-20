@@ -1,0 +1,139 @@
+module control(
+input clock,
+input reset,
+input [2:0]opcode,
+
+output reg s0,//fetch instruction
+output reg s1,//decode
+output reg s2,//read memory data for process
+output reg s3,//enable alu to computer 
+output reg s4,//write to memory
+output reg s5,//increase pc
+output reg addrsel,
+output reg instr_add,
+output reg instr_sub,
+output reg instr_and,
+output reg instr_pass,
+output reg instr_PC
+);
+parameter [2:0]
+LDA = 3'b000,
+STA = 3'b001,
+ADD = 3'b010,
+SUB = 3'b011,
+AND = 3'b100,
+HLT = 3'b101,
+JMP = 3'b110,
+JZ = 3'b111;
+//JMP = 3'b110
+//JZF = 3'b111
+reg [2:0] cnt;
+always@(posedge clock,posedge reset)
+	begin
+		if(reset == 1)
+			cnt<=0;
+		else 
+			if(cnt == 5)
+				cnt<=0;
+			else
+				cnt<=cnt+1'b1;
+	end
+	
+always@(*)
+	begin
+		case(cnt)//synthesis full_case
+		0:begin//fetvh instruction
+			s0<=1;s1<=0;s2<=0;s3<=0;s4<=0;s5<=0;
+			addrsel<=0;//fetch the instruction_code address
+		  end
+		1:begin//decode
+			s0<=0;s1<=1;s2<=0;s3<=0;s4<=0;s5<=0;
+			addrsel<=0;//fetch the code address
+		  end
+		2:begin//red memory data for process if necessary
+			s0<=0;s1<=0;/*s2<=1;*/s3<=0;s4<=0;s5<=0;
+			addrsel<=1;//fetch the data address	  
+		    if((opcode == LDA)||
+		       (opcode == ADD)||
+		       (opcode == SUB)||
+		       (opcode == AND))
+		       s2<=1;
+		    else
+				s2<=0;
+		   end
+		3:begin//enable ALU for computer
+			s0<=0;s1<=0;s2<=0;s3<=1;s4<=0;s5<=0;
+			addrsel<=1;//fetch the data address			  
+		    if(opcode == LDA)
+				begin
+					instr_add<=0;
+					instr_sub<=0;
+					instr_and<=0;
+					instr_pass<=1;
+					instr_PC<=0;
+				end
+			else if(opcode == ADD)
+				begin
+					instr_add<=1;
+					instr_sub<=0;
+					instr_and<=0;
+					instr_pass<=0;
+					instr_PC<=0;
+				end
+			else if(opcode == SUB)
+				begin
+					instr_add<=0;
+					instr_sub<=1;
+					instr_and<=0;
+					instr_pass<=0;
+					instr_PC<=0;
+				end
+		  	else if(opcode == AND)
+				begin
+					instr_add<=0;
+					instr_sub<=0;
+					instr_and<=1;
+					instr_pass<=0;
+					instr_PC<=0;
+				end
+			else if(opcode == STA)
+				begin
+					instr_add<=0;
+					instr_sub<=0;
+					instr_and<=0;
+					instr_pass<=0;
+					instr_PC<=0;
+				end
+			else if(opcode == JMP)
+				begin
+					instr_add<=0;
+					instr_sub<=0;
+					instr_and<=0;
+					instr_pass<=0;
+					instr_PC<=1;
+				end
+			else 
+				begin
+					instr_add<=0;
+					instr_sub<=0;
+					instr_and<=0;
+					instr_pass<=0;
+					instr_PC<=0;
+				end
+		  end//for case 3 
+		4:begin//write to  memory if necessary
+			s0<=0;s1<=0;s2<=0;s3<=0;/*s4<=1;*/s5<=0;
+			addrsel<=1;//fetch the data address
+			if(opcode == STA)
+				s4<=1;
+			else
+				s4<=0;
+		  end
+		5:begin
+			  s0<=0;s1<=0;s2<=0;s3<=0;s4<=0;s5<=1;
+			  addrsel<=1;//fetch the data address
+		  end
+		endcase
+	end
+endmodule
+		  

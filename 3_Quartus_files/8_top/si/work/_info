@@ -1,0 +1,157 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\ModelSim10.1\setup_location\examples
+T_opt
+Z1 Vcc[4o2J@VaoCKPn?HII>K1
+Z2 04 3 4 work top fast 0
+Z3 =3-00d861e13e45-5e78bdf0-313-3730
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;10.1a;51
+Z7 dC:\ModelSim10.1\setup_location\examples
+valu
+Z8 !s100 ^407LUh=RFPelaeE@4Z0;3
+Z9 IL>b35QCz0O>_S>JW@c19a1
+Z10 VU9ZU;9?jK0z`7e?h8e_8B0
+Z11 dD:\Quartus_file\3_PIC (del_wdt_sleep_nop)\8_top\si
+Z12 w1584951928
+Z13 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v
+Z14 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v
+L0 1
+Z15 OE;L;10.1a;51
+r1
+31
+Z16 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v|
+Z17 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z18 !s108 1584971861.704000
+Z19 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/4_ALU/alu.v|
+!i10b 1
+!s85 0
+vcontrol
+Z20 !s100 0b7T_2a2JY5>HWMI<9eY;3
+Z21 IN1_0Sb8@e_b5zWO^U?PHO2
+Z22 VVXiC_QdNeY2^7jgUEmnYH3
+R11
+Z23 w1584508580
+Z24 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v
+Z25 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v
+L0 1
+R15
+r1
+31
+Z26 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v|
+R17
+Z27 !s108 1584971861.784000
+Z28 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/5_CONTROL/control.v|
+!i10b 1
+!s85 0
+vdecode
+Z29 !s100 IfB]ShA2Q;5Ti@430KZaW1
+Z30 IhC<nGJ@`Y[JD:L]F_@85Z2
+Z31 VdGQV@PoC`na6m5M0z=0QG2
+R11
+Z32 w1584951410
+Z33 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v
+Z34 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v
+L0 1
+R15
+r1
+31
+Z35 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v|
+R17
+Z36 !s108 1584971861.602000
+Z37 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/3_DECODE/decode.v|
+!i10b 1
+!s85 0
+vmemory
+Z38 Ik[hR?gT1l=YgoeZH>lkzJ1
+Z39 V`4ESlCUnC`0AN]l>5Rk`O1
+R11
+Z40 w1584971423
+Z41 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/2_MEMORY/memory.v
+Z42 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/2_MEMORY/memory.v
+L0 1
+R15
+r1
+31
+Z43 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/2_MEMORY/memory.v|
+R17
+Z44 !s100 k<nbDS:4LlCFMa:k=U;0V3
+Z45 !s108 1584971861.501000
+Z46 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/2_MEMORY/memory.v|
+!i10b 1
+!s85 0
+vpc
+Z47 !s100 `aE@<3_C1m4ozdHcEnTA30
+Z48 IZ]XZCn9EmLH6eSk=XGQ>z0
+Z49 VD955mBK:N?=6>3;ZZ:[SZ1
+R11
+Z50 w1584678086
+Z51 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v
+Z52 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v
+L0 1
+R15
+r1
+31
+Z53 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v|
+R17
+Z54 !s108 1584971861.333000
+Z55 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/1_PC/pc.v|
+!i10b 1
+!s85 0
+vsfr
+Z56 !s100 IFFL`L[O@AO8Ez57XA<D>1
+Z57 I>k`_0f7bk@J0[=5JZgU0n2
+Z58 V?O274Rflz1hZIjUM;DS@R2
+R11
+Z59 w1584952107
+Z60 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v
+Z61 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v
+L0 1
+R15
+r1
+31
+Z62 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v|
+R17
+!i10b 1
+!s85 0
+Z63 !s108 1584971861.947000
+Z64 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/7_SFR/sfr.v|
+vstack
+Z65 !s100 S2g:9Lo>0>f0of8hR>bSc3
+Z66 IU=bDfiQ]Ao2m0i;c9:POm0
+Z67 V[fA_8zd=k__bgcWNOODSB1
+R11
+Z68 w1584278404
+Z69 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v
+Z70 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v
+L0 1
+R15
+r1
+31
+Z71 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v|
+R17
+Z72 !s108 1584971861.867000
+Z73 !s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/6_STACK/stack.v|
+!i10b 1
+!s85 0
+vtop
+!i10b 1
+Z74 !s100 Zn@L6diei4AE`8<QiJbE<1
+Z75 IS__F@XIKb1nnh4ziR`_T21
+Z76 V0JNgD89=dKWXcLaoH;`N82
+R11
+Z77 w1584971236
+Z78 8D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v
+Z79 FD:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v
+L0 20
+R15
+r1
+!s85 0
+31
+!s108 1584971862.057000
+!s107 D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v|
+Z80 !s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/3_PIC (del_wdt_sleep_nop)/8_top/top.v|
+R17

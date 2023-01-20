@@ -1,0 +1,159 @@
+[p AUTOSTATIC PIC14 PICMIDHI PICLOMID ]
+"12 d:\picc_lite\setup_location\INCLUDE\pic1684.h
+[v _RTCC `Vuc  1 s 1 @1 ]
+"13
+[v _TMR0 `Vuc  1 s 1 @1 ]
+"14
+[v _PCL `Vuc  1 s 1 @2 ]
+"15
+[v _STATUS `Vuc  1 s 1 @3 ]
+"16
+[v _FSR `uc  1 s 1 @4 ]
+"17
+[v _PORTA `Vuc  1 s 1 @5 ]
+"18
+[v _PORTB `Vuc  1 s 1 @6 ]
+"19
+[v _EEDATA `Vuc  1 s 1 @8 ]
+"20
+[v _EEADR `Vuc  1 s 1 @9 ]
+"21
+[v _PCLATH `uc  1 s 1 @10 ]
+"22
+[v _INTCON `Vuc  1 s 1 @11 ]
+"24
+[v _OPTION `Xuc  1 s 1 @129 ]
+"25
+[v _TRISA `VXuc  1 s 1 @133 ]
+"26
+[v _TRISB `VXuc  1 s 1 @134 ]
+"27
+[v _EECON1 `VXuc  1 s 1 @136 ]
+"28
+[v _EECON2 `VXuc  1 s 1 @137 ]
+"31
+[v _RP0 `Vb  1 s 0 @29 ]
+"32
+[v _TO `Vb  1 s 0 @28 ]
+"33
+[v _PD `Vb  1 s 0 @27 ]
+"34
+[v _ZERO `Vb  1 s 0 @26 ]
+"35
+[v _DC `Vb  1 s 0 @25 ]
+"36
+[v _CARRY `Vb  1 s 0 @24 ]
+"39
+[v _RA4 `Vb  1 s 0 @44 ]
+"40
+[v _RA3 `Vb  1 s 0 @43 ]
+"41
+[v _RA2 `Vb  1 s 0 @42 ]
+"42
+[v _RA1 `Vb  1 s 0 @41 ]
+"43
+[v _RA0 `Vb  1 s 0 @40 ]
+"46
+[v _RB7 `Vb  1 s 0 @55 ]
+"47
+[v _RB6 `Vb  1 s 0 @54 ]
+"48
+[v _RB5 `Vb  1 s 0 @53 ]
+"49
+[v _RB4 `Vb  1 s 0 @52 ]
+"50
+[v _RB3 `Vb  1 s 0 @51 ]
+"51
+[v _RB2 `Vb  1 s 0 @50 ]
+"52
+[v _RB1 `Vb  1 s 0 @49 ]
+"53
+[v _RB0 `Vb  1 s 0 @48 ]
+"54
+[v _INT `Vb  1 s 0 @48 ]
+"57
+[v _GIE `Vb  1 s 0 @95 ]
+"58
+[v _EEIE `Vb  1 s 0 @94 ]
+"59
+[v _T0IE `Vb  1 s 0 @93 ]
+"60
+[v _INTE `Vb  1 s 0 @92 ]
+"61
+[v _RBIE `Vb  1 s 0 @91 ]
+"62
+[v _T0IF `Vb  1 s 0 @90 ]
+"63
+[v _INTF `Vb  1 s 0 @89 ]
+"64
+[v _RBIF `Vb  1 s 0 @88 ]
+"67
+[v _RBPU `Xb  1 s 0 @1039 ]
+"68
+[v _INTEDG `Xb  1 s 0 @1038 ]
+"69
+[v _T0CS `Xb  1 s 0 @1037 ]
+"70
+[v _T0SE `Xb  1 s 0 @1036 ]
+"71
+[v _PSA `Xb  1 s 0 @1035 ]
+"72
+[v _PS2 `Xb  1 s 0 @1034 ]
+"73
+[v _PS1 `Xb  1 s 0 @1033 ]
+"74
+[v _PS0 `Xb  1 s 0 @1032 ]
+"77
+[v _TRISA4 `VXb  1 s 0 @1068 ]
+"78
+[v _TRISA3 `VXb  1 s 0 @1067 ]
+"79
+[v _TRISA2 `VXb  1 s 0 @1066 ]
+"80
+[v _TRISA1 `VXb  1 s 0 @1065 ]
+"81
+[v _TRISA0 `VXb  1 s 0 @1064 ]
+"84
+[v _TRISB7 `VXb  1 s 0 @1079 ]
+"85
+[v _TRISB6 `VXb  1 s 0 @1078 ]
+"86
+[v _TRISB5 `VXb  1 s 0 @1077 ]
+"87
+[v _TRISB4 `VXb  1 s 0 @1076 ]
+"88
+[v _TRISB3 `VXb  1 s 0 @1075 ]
+"89
+[v _TRISB2 `VXb  1 s 0 @1074 ]
+"90
+[v _TRISB1 `VXb  1 s 0 @1073 ]
+"91
+[v _TRISB0 `VXb  1 s 0 @1072 ]
+"94
+[v _EEIF `VXb  1 s 0 @1092 ]
+"95
+[v _WRERR `VXb  1 s 0 @1091 ]
+"96
+[v _WREN `VXb  1 s 0 @1090 ]
+"97
+[v _WR `VXb  1 s 0 @1089 ]
+"98
+[v _RD `VXb  1 s 0 @1088 ]
+"7 D:\MAPLAB_8_7\test\lesson2\lesson2_0.c
+[v _delay `(v  1 e 0 0 ]
+{
+[v _x `ui  1 p 2 0 ]
+"8
+[v _a `ui  1 a 2 0 ]
+[v _b `ui  1 a 2 2 ]
+"11
+} 4
+"12
+[v _led `uc  0a e 0 0 ]
+"40
+[v _led `uc  25a e 25 0 ]
+"42
+[v _main `(v  1 e 0 0 ]
+{
+"66
+} 0

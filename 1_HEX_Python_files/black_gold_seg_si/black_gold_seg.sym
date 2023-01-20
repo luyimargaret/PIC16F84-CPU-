@@ -1,0 +1,171 @@
+__Hinit23 D 0 CODE
+__Linit23 D 0 CODE
+__Hcode_ptr 19 0 BANK0
+__Lcode_ptr 17 0 BANK0
+__S0 2100 0
+__S1 19 0
+_led 12 0 BANK0
+_main 3A6 0 CODE
+_exit 4 0 CODE
+start 4 0 CODE
+used_code_ptr 1 0
+__Hfloat_text2 2B 0 CODE
+__Lfloat_text2 2B 0 CODE
+__Brbit_0 C FFFFFFAC BANK0
+__Hrbit_0 60 FFFFFFAC BANK0
+__Lrbit_0 60 FFFFFFAC BANK0
+__Brbit_1 17 FFFFFF5F BANK1
+__Hrbss_0 12 0 BANK0
+__Hrbit_1 B8 FFFFFF5F BANK1
+__Lrbss_0 C 0 BANK0
+__Lrbit_1 B8 FFFFFF5F BANK1
+__Brbit_2 17 FFFFFF5F BANK2
+__Hrbss_1 17 0 BANK1
+__Hrbit_2 B8 FFFFFF5F BANK2
+__Lrbss_1 17 0 BANK1
+__Lrbit_2 B8 FFFFFF5F BANK2
+__Brbit_3 17 FFFFFF5F BANK3
+__Hrbss_2 17 0 BANK2
+__Hrbit_3 B8 FFFFFF5F BANK3
+__Lrbss_2 17 0 BANK2
+__Lrbit_3 B8 FFFFFF5F BANK3
+__Hrbss_3 17 0 BANK3
+__Lrbss_3 17 0 BANK3
+__Hintcode 4 0 CODE
+__Lintcode 4 0 CODE
+intlevel0 4 0 CODE
+_delay 3CE 0 CODE
+intlevel1 4 0 CODE
+__Heeprom_data 2100 0 EEDATA
+__Leeprom_data 2100 0 EEDATA
+__Hidata_0 400 0 CODE
+__Lidata_0 3FC 0 CODE
+__Hrdata_0 16 0 BANK0
+__Lrdata_0 12 0 BANK0
+__Hintsave_0 C 0 BANK0
+__Lintsave_0 C 0 BANK0
+__Hidata_1 17 0
+__Lidata_1 17 0
+__Hrdata_1 17 0 BANK1
+__Lrdata_1 17 0 BANK1
+__Hidata_2 17 0
+__Hintsave 17 0
+__Lidata_2 17 0
+__Lintsave 17 0
+__Hintentry 4 0 CODE
+__Lintentry 4 0 CODE
+__Hrdata_2 17 0 BANK2
+__Lrdata_2 17 0 BANK2
+__Hidata_3 17 0
+__Lidata_3 17 0
+__Hrdata_3 17 0 BANK3
+__Lrdata_3 17 0 BANK3
+__Hnvram_1 17 0 BANK1
+__Lnvram_1 17 0 BANK1
+__Bnvbit_0 17 FFFFFF5F BANK0
+__Hnvbit_0 B8 FFFFFF5F BANK0
+__Lnvbit_0 B8 FFFFFF5F BANK0
+__Hnvram_2 17 0 BANK2
+__Lnvram_2 17 0 BANK2
+__Hintsave_1 17 0 BANK1
+__Lintsave_1 17 0 BANK1
+__Bnvbit_1 17 FFFFFF5F BANK1
+__Hnvbit_1 B8 FFFFFF5F BANK1
+__Lnvbit_1 B8 FFFFFF5F BANK1
+__Hnvram_3 17 0 BANK3
+__Lnvram_3 17 0 BANK3
+__Bnvbit_2 17 FFFFFF5F BANK2
+__Hnvbit_2 B8 FFFFFF5F BANK2
+__Lnvbit_2 B8 FFFFFF5F BANK2
+__Hcode 17 0
+__Lcode 17 0
+__Bnvbit_3 17 FFFFFF5F BANK3
+__Hnvbit_3 B8 FFFFFF5F BANK3
+__Lnvbit_3 B8 FFFFFF5F BANK3
+__Hfloat_text3 2B 0 CODE
+__Lfloat_text3 2B 0 CODE
+copy_bank0 4 0 CODE
+__Htemp 17 0 BANK0
+__Ltemp 16 0 BANK0
+__Hinit D 0 CODE
+__Linit 4 0 CODE
+__Hintsave_2 17 0 BANK2
+?_delay C 0 BANK0
+__Lintsave_2 17 0 BANK2
+powerup 0 0 CODE
+__Htext 17 0
+__Ltext 17 0
+__Hstrings 2B 0 STRING
+__Lstrings 2B 0 STRING
+__Hstringtable 2B 0 ENTRY
+__Lstringtable 18 0 ENTRY
+__Hintsave_3 17 0 BANK3
+__Lintsave_3 17 0 BANK3
+__Hcommon_ram 17 0
+__Lcommon_ram 17 0
+__Hpowerup 4 0 CODE
+__Lpowerup 0 0 CODE
+__Hvectors 2B 0 CODE
+__Lvectors 2B 0 CODE
+__Hclrtext 18 0 CODE
+__Lclrtext F 0 CODE
+copy_data F 0 CODE
+__Hconfig 2007 0 CONFIG
+__Lconfig 2007 0 CONFIG
+__Hfloat_text0 2B 0 CODE
+__Lfloat_text0 2B 0 CODE
+__Hfloat_text4 2B 0 CODE
+__Lfloat_text4 2B 0 CODE
+string_indir 1A 0 ENTRY
+__Hintret 4 0 CODE
+__Lintret 4 0 CODE
+__Hstruct 19 0 BANK0
+__Lstruct 19 0 BANK0
+__Hidloc 2000 0 IDLOC
+__Lidloc 2000 0 IDLOC
+__Hnvram 17 0 BANK0
+__Lnvram 17 0 BANK0
+string_table 18 0 ENTRY
+?a_delay E 0 BANK0
+code_ptr 17 0 BANK0
+__Hfloat_text1 2B 0 CODE
+__Lfloat_text1 2B 0 CODE
+__Hpstrings 2B 0 CODE
+__Lpstrings 2B 0 CODE
+__Hend_init F 0 CODE
+__Lend_init D 0 CODE
+%segments
+powerup 0 7 CODE
+intentry 8 55 CODE
+intsave_0 C 15 BANK0
+idata_0 7F8 7FF CODE
+temp 16 16 COMBANK
+nvram 17 18 BANK0
+text0 79C 7F7 CODE
+text1 74C 79B CODE
+%locals
+D:\5_MAPLAB8.7_files\black_gold_seg_si\black_gold_seg.obj
+status 3
+D:\5_MAPLAB8.7_files\black_gold_seg_si\black_gold_seg.c
+7 3CE 0 CODE
+9 3CE 0 CODE
+10 3D9 0 CODE
+9 3EF 0 CODE
+11 3FA 0 CODE
+20 3A6 0 CODE
+21 3A8 0 CODE
+22 3A9 0 CODE
+24 3AA 0 CODE
+25 3AD 0 CODE
+26 3AF 0 CODE
+28 3B4 0 CODE
+29 3B6 0 CODE
+30 3B8 0 CODE
+32 3BC 0 CODE
+33 3BE 0 CODE
+34 3C0 0 CODE
+36 3C4 0 CODE
+37 3C6 0 CODE
+38 3C8 0 CODE
+22 3CC 0 CODE
+41 3CD 0 CODE

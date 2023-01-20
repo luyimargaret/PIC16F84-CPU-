@@ -1,0 +1,8 @@
+D:/Quartus_file/1_PIC/1_PC/pc.v {1 {vlog -work work -vopt D:/Quartus_file/1_PIC/1_PC/pc.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}}

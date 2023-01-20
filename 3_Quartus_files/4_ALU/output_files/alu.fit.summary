@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Mar 26 10:57:59 2020
+Quartus II 64-Bit Version : 15.0.0 Build 145 04/22/2015 SJ Full Version
+Revision Name : alu
+Top-level Entity Name : alu
+Family : Cyclone IV E
+Device : EP4CE10E22C8
+Timing Models : Final
+Total logic elements : 228 / 10,320 ( 2 % )
+    Total combinational functions : 228 / 10,320 ( 2 % )
+    Dedicated logic registers : 17 / 10,320 ( < 1 % )
+Total registers : 17
+Total pins : 45 / 92 ( 49 % )
+Total virtual pins : 0
+Total memory bits : 0 / 423,936 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

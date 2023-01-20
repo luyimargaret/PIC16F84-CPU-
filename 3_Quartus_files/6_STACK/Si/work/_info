@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dD:\essential_work_save\6_PIC\1pc\Si
+T_opt
+V@eWOF`ieXl93GEMbG9Mhm0
+04 5 4 work stack fast 0
+=22-1c394723b9bc-5e6e2bc5-174-4f4
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vstack
+ICFIIV11EM`K^B5bbfzA9O0
+V[fA_8zd=k__bgcWNOODSB1
+dD:\essential_work_save\6_PIC\2_stack\Si
+w1584278402
+8D:/essential_work_save/6_PIC/2_stack/stack.v
+FD:/essential_work_save/6_PIC/2_stack/stack.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s90 -reportprogress|300|-work|work|-vopt|D:/essential_work_save/6_PIC/2_stack/stack.v|
+!i10b 1
+!s100 VSboCd`_7bo6WEf3[7_ob3
+!s85 0
+!s108 1584278458.812000
+!s107 D:/essential_work_save/6_PIC/2_stack/stack.v|

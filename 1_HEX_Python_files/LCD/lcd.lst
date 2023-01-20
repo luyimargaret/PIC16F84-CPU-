@@ -1,0 +1,144 @@
+     1: 
+     2: //移动版
+     3: #include <pic.H>
+     4: #define uchar unsigned char
+     5: #define uint unsigned int
+     6: 
+     7: const uchar  table[]={"DuDu DuDu"};
+     8: const uchar  table1[]={"I Love you!"};
+     9: 
+    10: //RA0是RS
+    11: //RA2是EN
+    12: uchar num;
+    13: void delay(uint z)
+    14: {
+    15:         uint x,y;
+    16:         for(x=z;x>0;x--)
+    17:                 for(y=110;y>0;y--);
+    18: }
+    19: 
+    20: void write_com(uchar com)//写命令
+    21: {
+    22:         RA0=0;//写命令
+    23:         PORTB=com;//将命令赋给端口B
+    24:         delay(5);
+    25:         RA2=1;//使能E为1,高脉冲将命令取走
+    26:         delay(5);
+    27:         RA2=0;//使能E为0
+    28: }
+    29: 
+    30: void write_data(uchar date)//写数据
+    31: {
+    32:         RA0=1;//写数据
+    33:         PORTB=date;//将数据命令赋给端口B
+    34:         delay(5);
+    35:         RA2=1;//使能E为1,高脉冲将命令取走
+    36:         delay(5);
+    37:         RA2=0;//使能E为0
+    38: }
+    39: 
+    40: void init()
+    41: {
+    42:         TRISA = 0X00;
+    43:         TRISB = 0X00;
+    44:         RA2=0;//初始使能E为0
+    45:         write_com(0x38);//中文手册第二页，显示模式设置
+    46:         write_com(0x0e);//设置光标显示状态，开显示、显示光标、
+    47:         //光标关闪烁0x0e,光标开闪烁0x0f
+    48:         write_com(0x06);//指针自动加一，整屏不移动
+    49:         write_com(0x01);//清屏指令
+    50:         write_com(0x80+0x10);//数据指针初始化
+    51: }
+    52: 
+    53: void main()
+    54: {
+    55:         init();
+    56:         for(num=0;num<=8;num++)
+    57:         {
+    58:                 write_data(table[num]);
+    59:                 delay(20);
+    60:         }
+    61:         write_com(0x80+0x50);//初始化第二行的位置
+    62:         for(num=0;num<=10;num++)
+    63:         {
+    64:                 write_data(table1[num]);
+    65:                 delay(20);
+    66:         }
+    67:         for(num=0;num<16;num++)//整体左移
+    68:         {
+    69:                 write_com(0x18);
+    70:                 delay(200);
+    71:         }
+    72:         while(1);
+    73: }
+    74: /*
+    75: 
+    76: //静止版
+    77: #include <pic.H>
+    78: #define uchar unsigned char
+    79: #define uint unsigned int
+    80: 
+    81: const uchar  table[]={"DuDu DuDu"};
+    82: const uchar  table1[]={"I Love you!"};
+    83: 
+    84: //RA0是RS
+    85: //RA2是EN
+    86: uchar num;
+    87: void delay(uint z)
+    88: {
+    89:         uint x,y;
+    90:         for(x=z;x>0;x--)
+    91:                 for(y=110;y>0;y--);
+    92: }
+    93: 
+    94: void write_com(uchar com)//写命令
+    95: {
+    96:         RA0=0;//写命令
+    97:         PORTB=com;//将命令赋给端口B
+    98:         delay(5);
+    99:         RA2=1;//使能E为1,高脉冲将命令取走
+   100:         delay(5);
+   101:         RA2=0;//使能E为0
+   102: }
+   103: 
+   104: void write_data(uchar date)//写数据
+   105: {
+   106:         RA0=1;//写数据
+   107:         PORTB=date;//将数据命令赋给端口B
+   108:         delay(5);
+   109:         RA2=1;//使能E为1,高脉冲将命令取走
+   110:         delay(5);
+   111:         RA2=0;//使能E为0
+   112: }
+   113: 
+   114: void init()
+   115: {
+   116:         TRISA = 0X00;
+   117:         TRISB = 0X00;
+   118:         RA2=0;//初始使能E为0
+   119:         write_com(0x38);//中文手册第二页，显示模式设置
+   120:         write_com(0x0e);//设置光标显示状态，开显示、显示光标、
+   121:         //光标关闪烁0x0e,光标开闪烁0x0f
+   122:         write_com(0x06);//指针自动加一，整屏不移动
+   123:         write_com(0x01);//清屏指令
+   124:         write_com(0x80);//数据指针初始化
+   125: }
+   126: 
+   127: void main()
+   128: {
+   129:         init();
+   130:         for(num=0;num<=8;num++)
+   131:         {
+   132:                 write_data(table[num]);
+   133:                 delay(20);
+   134:         }
+   135:         write_com(0x80+0x40);//初始化第二行的位置
+   136:         for(num=0;num<=10;num++)
+   137:         {
+   138:                 write_data(table1[num]);
+   139:                 delay(20);
+   140:         }
+   141:         while(1);
+   142: }
+   143: 
+   144: */

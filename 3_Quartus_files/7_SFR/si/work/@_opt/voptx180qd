@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dD:\Quartus_file\1_PIC\1_PC\Si
+T_opt
+VIzb`Bc8BN?]3U3d=Kl8MC1
+04 3 4 work sfr fast 0
+=48-00d861e13e45-5e748e2a-ba-2e00
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vsfr
+I?3OP:_CEWJP5[G:iIg?FC2
+VGF;j>6S6Mn8QR_BmbZg0a3
+dD:\Quartus_file\1_PIC\7_SFR\si
+w1584696471
+8D:/Quartus_file/1_PIC/7_SFR/sfr.v
+FD:/Quartus_file/1_PIC/7_SFR/sfr.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s90 -reportprogress|300|-work|work|-vopt|D:/Quartus_file/1_PIC/7_SFR/sfr.v|
+!i10b 1
+!s100 3d136N:MjQCSFPCAz25ZM2
+!s85 0
+!s108 1584696870.403000
+!s107 D:/Quartus_file/1_PIC/7_SFR/sfr.v|

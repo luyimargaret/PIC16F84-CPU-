@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dD:\essential_work_save\6_PIC\4_ALU\si
+T_opt
+Vm6MjU7^0b6GS7h<Pj<JOQ3
+04 7 4 work control fast 0
+=1-1c394723b9bc-5e71cb4d-16d-3a20
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vcontrol
+Inke4VbJ?iG0z9Z2H9ibLg1
+VVXiC_QdNeY2^7jgUEmnYH3
+dD:\essential_work_save\6_PIC\5_CONTROL\si
+w1584508579
+8D:/essential_work_save/6_PIC/5_CONTROL/control.v
+FD:/essential_work_save/6_PIC/5_CONTROL/control.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 c=GR2N@:FdD]d^I[?eYa13
+!s85 0
+!s108 1584515909.156000
+!s107 D:/essential_work_save/6_PIC/5_CONTROL/control.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:/essential_work_save/6_PIC/5_CONTROL/control.v|

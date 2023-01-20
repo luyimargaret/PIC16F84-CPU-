@@ -1,0 +1,30 @@
+m255
+K3
+13
+cModel Technology
+dD:\essential_work_save\6_PIC\2_MEMORY\si
+T_opt
+VRaPf_1oU5eYgA4`IR?nTd0
+04 6 4 work decode fast 0
+=44-1c394723b9bc-5e70906f-2fa-2764
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OE;O;10.1a;51
+vdecode
+I?3AZAT05b>_kEZ0C]a@XL2
+VTj23jWIT[aezz?K@bYkmJ3
+dD:\essential_work_save\6_PIC\3_DECODE\si
+w1584435138
+8D:/essential_work_save/6_PIC/3_DECODE/decode.v
+FD:/essential_work_save/6_PIC/3_DECODE/decode.v
+L0 1
+OE;L;10.1a;51
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s90 -reportprogress|300|-work|work|-vopt|D:/essential_work_save/6_PIC/3_DECODE/decode.v|
+!i10b 1
+!s100 Y_4^4VN3dVg>AV<^3FUk`3
+!s85 0
+!s108 1584435268.418000
+!s107 D:/essential_work_save/6_PIC/3_DECODE/decode.v|
